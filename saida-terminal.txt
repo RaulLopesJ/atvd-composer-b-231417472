@@ -1,0 +1,346 @@
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose up --build -d
+[+] Building 8.8s (22/22) FINISHED
+ => [internal] load local bake definitions                                                                         0.0s
+ => => reading from stdin 1.15kB                                                                                   0.0s
+ => [api internal] load build definition from Dockerfile                                                           0.0s
+ => => transferring dockerfile: 169B                                                                               0.0s
+ => [portal internal] load build definition from Dockerfile                                                        0.1s
+ => => transferring dockerfile: 186B                                                                               0.0s
+ => [api internal] load metadata for docker.io/library/node:24-alpine                                              2.0s
+ => [portal internal] load metadata for docker.io/library/nginx:alpine                                             2.5s
+ => [auth] library/node:pull token for registry-1.docker.io                                                        0.0s
+ => [auth] library/nginx:pull token for registry-1.docker.io                                                       0.0s
+ => [api internal] load .dockerignore                                                                              0.0s
+ => => transferring context: 64B                                                                                   0.0s
+ => [api 1/4] FROM docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b5330  5.6s
+ => => resolve docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f90  0.0s
+ => => sha256:7ce7dcbafb7f750cf0c6be3c30e34372b06dd1182fa67f6ae30782c8150c5444 444B / 444B                         0.2s
+ => => sha256:02f40d53b06f6b91fec0cd6a6719656da99270bff8ee54ed8dcdf4c157763fc1 1.26MB / 1.26MB                     0.6s
+ => => sha256:3c504d5a797be28f9de43147d49cd8ecb2eea46dfaf7beb8715db695d5f0a7f0 56.52MB / 56.52MB                   4.5s
+ => => sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5 3.85MB / 3.85MB                     2.0s
+ => => extracting sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5                          0.1s
+ => => extracting sha256:3c504d5a797be28f9de43147d49cd8ecb2eea46dfaf7beb8715db695d5f0a7f0                          0.9s
+ => => extracting sha256:02f40d53b06f6b91fec0cd6a6719656da99270bff8ee54ed8dcdf4c157763fc1                          0.0s
+ => => extracting sha256:7ce7dcbafb7f750cf0c6be3c30e34372b06dd1182fa67f6ae30782c8150c5444                          0.0s
+ => [api internal] load build context                                                                              0.0s
+ => => transferring context: 4.74kB                                                                                0.0s
+ => [portal internal] load .dockerignore                                                                           0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [portal 1/3] FROM docker.io/library/nginx:alpine@sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a  5.2s
+ => => resolve docker.io/library/nginx:alpine@sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1ab  0.0s
+ => => sha256:e72112c14215406dc7f23ef8e5cfdfddeb8662176167382ad64ec86f52b7a88e 20.53MB / 20.53MB                   4.7s
+ => => sha256:e76228b47809e8a4bd37a6ba52a04d282d8c72ddf0ff9e8b83fd6318631abd52 1.40kB / 1.40kB                     0.6s
+ => => sha256:64c8194480fee2c03e01cc561cf5542733627d2c7de493a028139677025f975c 1.21kB / 1.21kB                     0.2s
+ => => sha256:9a9a644fdd6a3681d43dace44c8cfef374cfd7b24f433113379ea483692498a8 404B / 404B                         0.2s
+ => => sha256:745dfb2690dd8627e1593941caccc756f14943df7930a478beb4e808c5695cb9 965B / 965B                         0.2s
+ => => sha256:6c53d0b2a666ed8f8fad8d9982e30cf24eb085036c17b27591665ca25e1ba40c 629B / 629B                         0.2s
+ => => sha256:d9aae54b58315e84b9c3ac5f00bad6610e0e28ad9ff28fcde694647e0be13131 1.93MB / 1.93MB                     0.7s
+ => => extracting sha256:d9aae54b58315e84b9c3ac5f00bad6610e0e28ad9ff28fcde694647e0be13131                          0.1s
+ => => extracting sha256:6c53d0b2a666ed8f8fad8d9982e30cf24eb085036c17b27591665ca25e1ba40c                          0.0s
+ => => extracting sha256:745dfb2690dd8627e1593941caccc756f14943df7930a478beb4e808c5695cb9                          0.0s
+ => => extracting sha256:9a9a644fdd6a3681d43dace44c8cfef374cfd7b24f433113379ea483692498a8                          0.0s
+ => => extracting sha256:64c8194480fee2c03e01cc561cf5542733627d2c7de493a028139677025f975c                          0.0s
+ => => extracting sha256:e76228b47809e8a4bd37a6ba52a04d282d8c72ddf0ff9e8b83fd6318631abd52                          0.0s
+ => => extracting sha256:e72112c14215406dc7f23ef8e5cfdfddeb8662176167382ad64ec86f52b7a88e                          0.3s
+ => [portal internal] load build context                                                                           0.0s
+ => => transferring context: 3.75kB                                                                                0.0s
+ => [api 2/4] WORKDIR /app                                                                                         0.1s
+ => [portal 2/3] COPY default.conf.template /etc/nginx/templates/default.conf.template                             0.0s
+ => [api 3/4] COPY package.json server.ts ./                                                                       0.0s
+ => [portal 3/3] COPY index.html /usr/share/nginx/html/index.html                                                  0.0s
+ => [api 4/4] RUN mkdir -p /app/registros                                                                          0.2s
+ => [portal] exporting to image                                                                                    0.2s
+ => => exporting layers                                                                                            0.1s
+ => => exporting manifest sha256:b4d649ab1ad782a674d6ec24a8a9898adac2b887bb4093eb01419dfb0a565358                  0.0s
+ => => exporting config sha256:bb26a07abf6b375e42ac46498fd724e551eb0145d0b455afc0e69e7fb99eb743                    0.0s
+ => => exporting attestation manifest sha256:c5070a7de2feeca87386964507536249ec4615d1bf8ba1dda184060dcf9a2298      0.0s
+ => => exporting manifest list sha256:4c95d03f422df6d3722343f37117e3648870e07f96e216b4d2ee7caf797d1f6b             0.0s
+ => => naming to docker.io/library/turma-b-portal:latest                                                           0.0s
+ => => unpacking to docker.io/library/turma-b-portal:latest                                                        0.0s
+ => [api] exporting to image                                                                                       0.3s
+ => => exporting layers                                                                                            0.2s
+ => => exporting manifest sha256:031c443b63580422bb852f6397a925483b456d6bb7fa07b0dd231b506dc40306                  0.0s
+ => => exporting config sha256:98e40aa6efb045e22200199f105fca8c9e756dea797f3695ae988794b57796a2                    0.0s
+ => => exporting attestation manifest sha256:705266060b4328ca40e7bb3206a2edf328bc6c132f87eff1d31280862e01f93d      0.0s
+ => => exporting manifest list sha256:f3f268db9883bed9a78717cce20e4ddabf84c3319ad4185b61f767bf2e17411d             0.0s
+ => => naming to docker.io/library/turma-b-api:latest                                                              0.0s
+ => => unpacking to docker.io/library/turma-b-api:latest                                                           0.0s
+ => [portal] resolving provenance for metadata file                                                                0.0s
+ => [api] resolving provenance for metadata file                                                                   0.0s
+[+] up 5/5
+ ✔ Image turma-b-portal       Built                                                                                 9.0s
+ ✔ Image turma-b-api          Built                                                                                 9.0s
+ ✔ Network turma-b_default    Created                                                                               0.0s
+ ✔ Container turma-b-api-1    Started                                                                               0.2s
+ ✔ Container turma-b-portal-1 Started                                                                               0.3s
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose ps
+NAME               IMAGE            COMMAND                  SERVICE   CREATED         STATUS         PORTS
+turma-b-api-1      turma-b-api      "docker-entrypoint.s…"   api       6 seconds ago   Up 6 seconds   3000/tcp
+turma-b-portal-1   turma-b-portal   "/docker-entrypoint.…"   portal    6 seconds ago   Up 6 seconds   127.0.0.1:8081->80/tcp
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> curl.exe -i http://localhost:8081/api/saude
+HTTP/1.1 502 Bad Gateway
+Server: nginx/1.31.6
+Date: Fri, 09 Oct 2026 02:18:27 GMT
+Content-Type: text/html
+Content-Length: 157
+Connection: keep-alive
+
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.31.6</center>
+</body>
+</html>
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose logs --tail=50 api portal
+api-1     | {"evento":"inicio","porta":3001}
+portal-1  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+portal-1  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+portal-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+portal-1  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+portal-1  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+portal-1  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+portal-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+portal-1  | 20-envsubst-on-templates.sh: Running envsubst on /etc/nginx/templates/default.conf.template to /etc/nginx/conf.d/default.conf
+portal-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+portal-1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: using the "epoll" event method
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: nginx/1.31.6
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0)
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: OS: Linux 6.18.40.1-microsoft-standard-WSL2
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker processes
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 35
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 36
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 37
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 38
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 39
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 40
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 41
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 42
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 43
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 44
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 45
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 46
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 47
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 48
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 49
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 50
+portal-1  | 2026/10/09 02:18:27 [error] 36#36: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/saude HTTP/1.1", upstream: "http://127.0.0.1:3000/saude", host: "localhost:8081"
+portal-1  | 172.19.0.1 - - [09/Oct/2026:02:18:27 +0000] "GET /api/saude HTTP/1.1" 502 157 "-" "curl/8.21.0" "-"
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose up -d
+[+] up 2/2
+ ✔ Container turma-b-api-1    Running                                                                               0.0s
+ ✔ Container turma-b-portal-1 Running                                                                               0.0s
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> curl.exe -i http://localhost:8081/api/saude
+HTTP/1.1 502 Bad Gateway
+Server: nginx/1.31.6
+Date: Fri, 09 Oct 2026 02:19:33 GMT
+Content-Type: text/html
+Content-Length: 157
+Connection: keep-alive
+
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.31.6</center>
+</body>
+</html>
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose logs --tail=15 api portal
+api-1     | {"evento":"inicio","porta":3001}
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 40
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 41
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 42
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 43
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 44
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 45
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 46
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 47
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 48
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 49
+portal-1  | 2026/10/09 02:18:13 [notice] 1#1: start worker process 50
+portal-1  | 2026/10/09 02:18:27 [error] 36#36: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/saude HTTP/1.1", upstream: "http://127.0.0.1:3000/saude", host: "localhost:8081"
+portal-1  | 172.19.0.1 - - [09/Oct/2026:02:18:27 +0000] "GET /api/saude HTTP/1.1" 502 157 "-" "curl/8.21.0" "-"
+portal-1  | 2026/10/09 02:19:33 [error] 37#37: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/saude HTTP/1.1", upstream: "http://127.0.0.1:3000/saude", host: "localhost:8081"
+portal-1  | 172.19.0.1 - - [09/Oct/2026:02:19:33 +0000] "GET /api/saude HTTP/1.1" 502 157 "-" "curl/8.21.0" "-"
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose up -d
+[+] up 2/2
+ ✔ Container turma-b-portal-1 Running                                                                               0.0s
+ ✔ Container turma-b-api-1    Running                                                                               0.0s
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> curl.exe -i http://localhost:8081/api/saude
+HTTP/1.1 502 Bad Gateway
+Server: nginx/1.31.6
+Date: Fri, 09 Oct 2026 02:20:04 GMT
+Content-Type: text/html
+Content-Length: 157
+Connection: keep-alive
+
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.31.6</center>
+</body>
+</html>
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> curl.exe -i http://localhost:8081/api/livros
+HTTP/1.1 502 Bad Gateway
+Server: nginx/1.31.6
+Date: Fri, 09 Oct 2026 02:20:04 GMT
+Content-Type: text/html
+Content-Length: 157
+Connection: keep-alive
+
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.31.6</center>
+</body>
+</html>
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose ps
+NAME               IMAGE            COMMAND                  SERVICE   CREATED              STATUS              PORTS
+turma-b-api-1      turma-b-api      "docker-entrypoint.s…"   api       About a minute ago   Up About a minute   3000/tcp
+turma-b-portal-1   turma-b-portal   "/docker-entrypoint.…"   portal    About a minute ago   Up About a minute   127.0.0.1:8081->80/tcp
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose up -d
+[+] up 2/2
+ ✔ Container turma-b-api-1    Running                                                                               0.0s
+ ✔ Container turma-b-portal-1 Started                                                                               0.6s
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> curl.exe -i http://localhost:8081/api/saude
+HTTP/1.1 502 Bad Gateway
+Server: nginx/1.31.6
+Date: Fri, 09 Oct 2026 02:21:19 GMT
+Content-Type: text/html
+Content-Length: 157
+Connection: keep-alive
+
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.31.6</center>
+</body>
+</html>
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> curl.exe -i http://localhost:8081/api/livros
+HTTP/1.1 502 Bad Gateway
+Server: nginx/1.31.6
+Date: Fri, 09 Oct 2026 02:21:19 GMT
+Content-Type: text/html
+Content-Length: 157
+Connection: keep-alive
+
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.31.6</center>
+</body>
+</html>
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose ps
+NAME               IMAGE            COMMAND                  SERVICE   CREATED          STATUS          PORTS
+turma-b-api-1      turma-b-api      "docker-entrypoint.s…"   api       3 minutes ago    Up 3 minutes    3000/tcp
+turma-b-portal-1   turma-b-portal   "/docker-entrypoint.…"   portal    11 seconds ago   Up 10 seconds   127.0.0.1:8081->80/tcp
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose config | Select-String API_URL
+
+      API_URL: http://api:3000
+
+
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose up -d
+[+] up 2/2
+ ✔ Container turma-b-api-1    Running                                                                               0.0s
+ ✔ Container turma-b-portal-1 Running                                                                               0.0s
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> curl.exe -i http://localhost:8081/api/saude
+HTTP/1.1 502 Bad Gateway
+Server: nginx/1.31.6
+Date: Fri, 09 Oct 2026 02:22:03 GMT
+Content-Type: text/html
+Content-Length: 157
+Connection: keep-alive
+
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.31.6</center>
+</body>
+</html>
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose logs --tail=8 api portal
+api-1     | {"evento":"inicio","porta":3001}
+portal-1  | 2026/10/09 02:21:19 [notice] 1#1: start worker process 50
+portal-1  | 2026/10/09 02:21:19 [notice] 1#1: start worker process 51
+portal-1  | 2026/10/09 02:21:19 [error] 36#36: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/saude HTTP/1.1", upstream: "http://172.19.0.2:3000/saude", host: "localhost:8081"
+portal-1  | 172.19.0.1 - - [09/Oct/2026:02:21:19 +0000] "GET /api/saude HTTP/1.1" 502 157 "-" "curl/8.21.0" "-"
+portal-1  | 2026/10/09 02:21:19 [error] 37#37: *4 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/livros HTTP/1.1", upstream: "http://172.19.0.2:3000/livros", host: "localhost:8081"
+portal-1  | 172.19.0.1 - - [09/Oct/2026:02:21:19 +0000] "GET /api/livros HTTP/1.1" 502 157 "-" "curl/8.21.0" "-"
+portal-1  | 2026/10/09 02:22:03 [error] 38#38: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/saude HTTP/1.1", upstream: "http://172.19.0.2:3000/saude", host: "localhost:8081"
+portal-1  | 172.19.0.1 - - [09/Oct/2026:02:22:03 +0000] "GET /api/saude HTTP/1.1" 502 157 "-" "curl/8.21.0" "-"
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose config | Select-String 'PORT:|API_URL:'
+
+      PORT: "3000"
+      API_URL: http://api:3000
+
+
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose up -d
+[+] up 2/2
+ ✔ Container turma-b-portal-1 Running                                                                               0.0s
+ ✔ Container turma-b-api-1    Started                                                                               3.7s
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> curl.exe -i http://localhost:8081/api/saude
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Fri, 09 Oct 2026 02:23:23 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+{
+  "status": "ok",
+  "turma": "B"
+}
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> curl.exe -i http://localhost:8081/api/livros
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Fri, 09 Oct 2026 02:23:23 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+{
+  "turma": "B",
+  "total": 3,
+  "itens": [
+    {
+      "id": 1,
+      "titulo": "Redes de computadores",
+      "disponiveis": 3,
+      "reservados": 0,
+      "restantes": 3
+    },
+    {
+      "id": 2,
+      "titulo": "Sistemas operacionais",
+      "disponiveis": 2,
+      "reservados": 0,
+      "restantes": 2
+    },
+    {
+      "id": 3,
+      "titulo": "Engenharia de software",
+      "disponiveis": 5,
+      "reservados": 0,
+      "restantes": 5
+    }
+  ]
+}
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose ps
+NAME               IMAGE            COMMAND                  SERVICE   CREATED          STATUS          PORTS
+turma-b-api-1      turma-b-api      "docker-entrypoint.s…"   api       16 seconds ago   Up 11 seconds   3000/tcp
+turma-b-portal-1   turma-b-portal   "/docker-entrypoint.…"   portal    2 minutes ago    Up 2 minutes    127.0.0.1:8081->80/tcp
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose up -d
+[+] up 2/2
+ ✔ Container turma-b-portal-1 Running                                                                               0.0s
+ ✔ Container turma-b-api-1    Started                                                                               3.4s
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b> docker compose up -d
+[+] up 2/2
+ ✔ Container turma-b-api-1    Started                                                                               3.8s
+ ✔ Container turma-b-portal-1 Started                                                                               0.7s
+PS C:\Users\Raul\Desktop\faculdade\8_semestre\Tecnologias_inovadoras\turma-b>
